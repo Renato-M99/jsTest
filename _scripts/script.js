@@ -69,7 +69,7 @@ function pao() {
 }
 
 /* pao(); */
-
+/* --------------------- if-else ------------------- */
 function hab() {
     let age;
 
@@ -193,6 +193,67 @@ function imc() {
 }
 /* imc(); */
 
+
+
+function rent() {
+    let tipoDeCarro, qtdDias, qtdKm, total;
+
+    tipoDeCarro = prompt('Qual o tipo de carro? ');
+
+    qtdDias = Number(prompt('Quantos dias de aluguel'));
+
+    qtdKm = Number(prompt('Quantos kilometros percorridos'));
+
+    if (tipoDeCarro == 'popular') {
+        if (qtdKm <= 100) {
+            total = (qtdDias * 90) + (qtdKm * 0.2);
+        }
+        else if (qtdKm > 100) {
+            total = (qtdDias * 90) + (qtdKm * 0.1);
+        }
+    }
+    else if (tipoDeCarro == 'luxo') {
+        if (qtdKm <= 200) {
+            total = (qtdDias * 150) + (qtdKm * 0.3);
+        }
+        else if (qtdKm > 200) {
+            total = (qtdDias * 150) + (qtdKm * 0.25);
+        }
+    }
+
+    alert('tipo: ' + tipoDeCarro + ' dias: ' + qtdDias + ' Km: ' + qtdKm + ' total: ' + total.toFixed(2));
+}
+
+/* rent();
+ */
+
+function gym() {
+    let hr, pts, total;
+
+    hr = Number(prompt('horas: '));
+
+    if (hr <= 10) {
+        pts = hr * 2;
+
+    }
+    else if (hr > 10 && hr <= 20) {
+        pts = hr * 5;
+    }
+
+    else if (hr > 20) {
+        pts = hr * 10;
+    }
+
+
+
+    total = pts * 0.05;
+
+    alert(total.toFixed(2));
+}
+/* 
+gym(); */
+
+/* ---------------- LOOPING FOR ---------------- */
 function test() {
     let tabuada, count;
 
@@ -228,66 +289,110 @@ function sub() {
         x = Number(prompt('primeiro valor: '));
         y = Number(prompt('segundo valor: '));
 
-        alert('Resultado: ' + x + ' - ' + y + ' = '+ (x-y));
+        alert('Resultado: ' + x + ' - ' + y + ' = ' + (x - y));
     }
 }
-/* 
-sub(); */
+/* sub(); */
 
-function rent(){
-    let tipoDeCarro, qtdDias, qtdKm, total;
+function calcAge() {
+    /* Ex Exemplo */
+    let idade, somaIdades, contIdade;
 
-    tipoDeCarro = prompt('Qual o tipo de carro? ');
+    somaIdades = 0;
+    contIdade = 1;
 
-    qtdDias = Number(prompt('Quantos dias de aluguel'));
 
-    qtdKm = Number(prompt('Quantos kilometros percorridos'));
+    while (contIdade <= 5) {
+        idade = Number(prompt('Digite a idade da ' + contIdade + 'º pessoa:'));
+        somaIdades += idade;
 
-    if(tipoDeCarro == 'popular'){
-        if(qtdKm <= 100){
-            total = (qtdDias * 90) + (qtdKm * 0.2); 
-        }
-        else if (qtdKm > 100){
-            total = (qtdDias * 90) + (qtdKm * 0.1);
-        }
-    }
-    else if (tipoDeCarro == 'luxo'){
-        if (qtdKm <= 200){
-            total = (qtdDias * 150) + (qtdKm * 0.3);
-        }
-        else if(qtdKm > 200){
-            total = (qtdDias * 150) + (qtdKm * 0.25);
-        }
+        contIdade += 1;
     }
 
-    alert('tipo: '+tipoDeCarro + ' dias: '+ qtdDias + ' Km: ' + qtdKm + ' total: ' + total.toFixed(2));
+    alert('A soma das idades é ' + somaIdades);
 }
 
-/* rent();
- */
+/* calcAge(); */
 
-function gym(){
-    let hr, pts, total;
+function media() {
+    /* Ex 7 */
+    let idade, somaIdades, contIdade, media;
+    somaIdades = 0;
+    contIdade = 1;
+    media = 0;
 
-    hr = Number(prompt('horas: '));
-    
-    if(hr <= 10){
-        pts = hr * 2;
+    while (contIdade <= 5) {
+        idade = Number(prompt('Digite a idade da ' + contIdade + 'º pessoa:'));
+        somaIdades += idade;
+
+        contIdade += 1;
+
+    }
+    media += somaIdades / contIdade;
+    alert(media);
+}
+
+/* media(); */
+
+function calcMaior() {
+    /* Ex 8 */
+    let idade, count = 1, maiorIdade, menorIdade;
+
+    maiorIdade = 0;
+    menorIdade = 0;
+    idade = 0;
+    while (count <= 5) {
+        idade = Number(prompt('digite a idade ' + count + 'º pessoa'));
+        if (idade >= 18) {
+            console.log(idade);
+            maiorIdade += 1;
+        }
+        else if (idade < 18) {
+            menorIdade += 1;
+        }
+        count += 1;
+    }
+
+    alert(maiorIdade);
+    alert(menorIdade);
+
+}
+calcMaior()
+
+function idadeNova() {
+    /* ler 10 pessoas (nome e idade)  e mostrar a pessoa mais nova*/
+    /* ex 9 */
+    let nome, idade, maisNovo, maisNome, count = 1;
+
+    maisNovo = 0;
+    idade = 0;
+
+    while (count <= 3) {
+        nome = prompt('Digite o nome da ' + count + ' pessoa');
+        idade = Number(prompt('Digite a idade da ' + count + ' pessoa'));
+
         
+        if (idade < maisNovo || maisNovo != 0) {
+            maisNovo = idade;
+            maisNome = nome;
+        }
+        count++;
     }
-    else if(hr > 10 && hr <=20){
-        pts = hr * 5;
-    }
-
-    else if(hr > 20){
-        pts = hr * 10;
-    }
-
-
-
-    total = pts * 0.05;
-
-    alert(total.toFixed(2));
+    alert(maisNome + ' ' + maisNovo);
 }
 
-gym();
+/* idadeNova(); */
+
+function tabuadaWhile(){
+    /* Ex 10 */
+    let num, count = 0;
+    num = Number(prompt('Qual numero tabuada'));
+
+    while(count < 10){
+        count += 1;
+        console.log(num + ' x ' + count + ' = ' + (num*count));
+    }
+}
+/* tabuadaWhile(); */
+
+
